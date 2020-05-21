@@ -26,4 +26,9 @@
           where order_id = #{orderId};
     </update>
 
+    <!--删除订单信息-->
+    <update id="deleteOrder" parameterType="String">
+        update order_info set is_delete = 1 where order_id = #{id};
+    </update>
+
 </mapper>

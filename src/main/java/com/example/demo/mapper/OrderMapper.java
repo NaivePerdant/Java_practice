@@ -32,4 +32,11 @@ public interface OrderMapper {
      * @return
      */
     int updateOrder(Order order);
+
+    /**
+     * 删除订单信息
+     * @param id
+     * @return
+     */
+    int deleteOrder(String id);
 }

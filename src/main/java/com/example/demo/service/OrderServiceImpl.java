@@ -17,8 +17,6 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService{
     @Autowired
     private OrderMapper orderMapper;
-    @Autowired
-    private ItemMapper itemMapper;
 
     /**
      * 查询所有订单信息
@@ -46,10 +44,6 @@ public class OrderServiceImpl implements OrderService{
      */
     @Override
     public int deleteOrder(String id) {
-        Order order = orderMapper.queryById(id);
-        order.setIsDelete(1);
-        orderMapper.updateOrder(order);
-        itemMapper.deleteItem(id);
-        return 0;
+       return orderMapper.deleteOrder(id);
     }
 }
