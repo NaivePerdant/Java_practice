@@ -20,30 +20,36 @@ public interface OrderMapper {
     List<Order> queryOrderList();
 
     /**
-     * 根据订单号查询订单
-     * @param orderId
+     * 查询所有订单
      * @return
      */
-    Order queryOrderById(int orderId);
-
-    /**
-     * 增
-     * @param order
-     * @return
-     */
-    int addOrder(Order order);
-
-    /**
-     * 改
-     * @param order
-     * @return
-     */
-    int updateOrder(Order order);
-
-    /**
-     * 删
-     * @param orderId
-     * @return
-     */
-    int deleteOrder(int orderId);
+    List<Order> queryOrderAndDetailList();
+//
+//    /**
+//     * 根据订单号查询订单
+//     * @param orderId
+//     * @return
+//     */
+//    Order queryOrderById(int orderId);
+//
+//    /**
+//     * 增
+//     * @param order
+//     * @return
+//     */
+//    int addOrder(Order order);
+//
+//    /**
+//     * 改
+//     * @param order
+//     * @return
+//     */
+//    int updateOrder(Order order);
+//
+//    /**
+//     * 删
+//     * @param orderId
+//     * @return
+//     */
+//    int deleteOrder(int orderId);
 }

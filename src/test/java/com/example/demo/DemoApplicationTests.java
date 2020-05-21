@@ -9,12 +9,9 @@ import java.sql.SQLException;
 
 @SpringBootTest
 class DemoApplicationTests {
-    @Autowired
-    DataSource dataSource;
+
     @Test
-    void contextLoads() throws SQLException {
-        System.out.println(dataSource.getClass());
-        System.out.println(dataSource.getConnection());
+    void contextLoads() {
     }
 
 }
