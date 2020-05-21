@@ -2,8 +2,6 @@ package com.example.demo.pojo;
 
 import lombok.Data;
 
-import java.util.Date;
-
 /**
  * 订单类
  * @author perdant
