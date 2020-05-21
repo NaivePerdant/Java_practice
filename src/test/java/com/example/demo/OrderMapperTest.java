@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.mapper.OrderMapper;
+import com.example.demo.pojo.Item;
 import com.example.demo.pojo.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,8 @@ public class OrderMapperTest {
 
     @Test
     public void testSelect() {
-        List<Order> orders = orderMapper.queryOrderList();
-        System.out.println(orders);
+        Item item = new Item("123", "111", 12.2);
+        Order order = new Order("123","tianmao","110","1",12.1,1,item);
+        orderMapper.updateOrder(order);
     }
 }

@@ -1,12 +1,11 @@
 package com.example.demo.controller;
 
-import com.example.demo.mapper.ItemMapper;
-import com.example.demo.pojo.Order;
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Controller 层
@@ -51,7 +50,10 @@ public class OrderController {
      * @return
      */
     @RequestMapping(method = RequestMethod.DELETE,value = "/{id}")
-    public String deleteOrder(@PathVariable String id){return " ";}
+    public String deleteOrder(@PathVariable String id){
+        orderService.deleteOrder(id);
+        return "SUCCESS";
+    }
 
     @RequestMapping(method = RequestMethod.PUT)
     public String updateOrder(){return " ";}

@@ -16,4 +16,14 @@
         select * from order_info where order_id = #{id};
     </select>
 
+    <!--修改订单信息-->
+    <update id="updateOrder" parameterType="Order">
+        update order_info set order_source = #{orderSource},
+                              user_id = #{userId},
+                              order_status = #{orderStatus},
+                              amount = #{amount},
+                              is_delete = #{isDelete}
+          where order_id = #{orderId};
+    </update>
+
 </mapper>

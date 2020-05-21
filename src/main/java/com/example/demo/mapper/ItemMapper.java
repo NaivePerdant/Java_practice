@@ -13,4 +13,11 @@ public interface ItemMapper {
      * @return
      */
     Item queryItemById(String id);
+
+    /**
+     * 删除商品信息
+     * @param id
+     * @return
+     */
+    int deleteItem(String id);
 }

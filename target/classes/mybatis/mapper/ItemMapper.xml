@@ -4,4 +4,8 @@
     <select id="queryItemById" resultType="Item">
         select * from order_detail_info where order_id = #{id};
     </select>
+
+    <delete id="deleteItem" parameterType="String">
+        delete from order_detail_info where order_id = #{id};
+    </delete>
 </mapper>

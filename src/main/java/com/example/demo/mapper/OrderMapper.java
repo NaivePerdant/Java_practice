@@ -25,4 +25,11 @@ public interface OrderMapper {
      * @return
      */
     Order queryById(String id);
+
+    /**
+     * 修改订单信息
+     * @param order
+     * @return
+     */
+    int updateOrder(Order order);
 }

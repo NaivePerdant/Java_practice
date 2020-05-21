@@ -23,4 +23,11 @@ public interface OrderService {
      * @return
      */
     Order queryById(String id);
+
+    /**
+     * 根据 id 删除订单
+     * @param id
+     * @return
+     */
+    int deleteOrder(String id);
 }
