@@ -1,8 +1,6 @@
 package com.example.demo.pojo;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
@@ -11,8 +9,7 @@ import java.util.Date;
  * @author perdant
  */
 @Data
-@Component
-public class Order {
+public class Order extends BaseDO{
     /**
      * 订单号
      */
@@ -38,24 +35,7 @@ public class Order {
      */
     private int isDelete;
     /**
-     * 创建人
-     */
-    private String createBy;
-    /**
-     * 修改人
-     */
-    private String updateBy;
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-    /**
-     * 修改时间
-     */
-    private Date updateTime;
-    /**
      * 具体商品
      */
-    @Autowired
     private Item item;
 }
