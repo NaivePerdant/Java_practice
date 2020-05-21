@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.OrderMapper">
-    <resultMap id="OrderAndDetailMap" type="Order">
+    <resultMap id="OrderResultMap" type="Order">
         <result property="orderId" column="order_id"/>
         <result property="orderSource" column="order_source"/>
         <result property="orderStatus" column="order_status"/>
         <result property="userId" column="user_id"/>
         <result property="amount" column="amount"/>
-        <association property="detailItem" javaType="DetailItem">
+        <association property="item" javaType="Item">
             <result property="itemAmount" column="item_amount"/>
             <result property="itemId" column="item_id"/>
         </association>
     </resultMap>
 
-    <select id="queryOrderList" resultType="Order">
-        select *
-        from order_info
-    </select>
-
-    <select id="queryOrderAndDetailList" resultMap="OrderAndDetailMap">
+    <select id="queryOrderList" resultMap="OrderResultMap">
         SELECT order_info.order_id,
                order_info.order_source,
                order_info.user_id,
@@ -31,5 +26,4 @@
                  LEFT JOIN order_detail_info ON order_info.order_id = order_detail_info.order_id;
 
     </select>
-
 </mapper>

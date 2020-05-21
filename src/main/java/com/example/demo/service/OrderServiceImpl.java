@@ -24,14 +24,4 @@ public class OrderServiceImpl implements OrderService{
     public List<Order> queryOrderList() {
         return orderMapper.queryOrderList();
     }
-
-    /**
-     * 查询当前订单信息
-     * @param orderId
-     * @return
-     */
-    @Override
-    public Order queryOrderById(String orderId) {
-        return orderMapper.queryOrderById(orderId);
-    }
 }

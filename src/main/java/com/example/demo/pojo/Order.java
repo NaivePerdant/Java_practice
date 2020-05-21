@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Order extends BaseDO{
-    private Long id;
     /**
      * 订单号
      */
@@ -32,9 +31,11 @@ public class Order extends BaseDO{
     /**
      * 订单金额
      */
-    private double amount;
+    private Double amount;
     /**
      * 是否删除：0-否，1-是
      */
-    private int isDelete;
+    private Integer isDelete;
+
+    private Item item;
 }

@@ -12,29 +12,8 @@ import java.util.List;
 @Service
 public interface OrderService {
     /**
-     * 查询所有订单
+     * 查询所有订单信息
      * @return
      */
     List<Order> queryOrderList();
-
-    /**
-     * 查询当前订单
-     * @param orderId
-     * @return
-     */
-    Order queryOrderById(String orderId);
-
-    /**
-     * 增加一条订单
-     * @param order
-     * @return
-     */
-    int addOrder(Order order);
-
-    /**
-     * 修改一条订单
-     * @param order
-     * @return
-     */
-    int updateOrder(Order order);
 }

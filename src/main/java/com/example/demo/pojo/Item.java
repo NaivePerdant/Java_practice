@@ -2,23 +2,25 @@ package com.example.demo.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 商品类
+ *
  * @author perdant
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
-public class Item extends BaseDO{
-    private Long id;
+public class Item {
     /**
-     * 商品 id
+     * 订单号
+     */
+    private String orderId;
+    /**
+     * 商品id
      */
     private String itemId;
     /**
-     * 商品金额
+     * 金额
      */
-    private double itemAmount;
+    private Double itemAmount;
 }

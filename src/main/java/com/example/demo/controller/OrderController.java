@@ -28,17 +28,4 @@ public class OrderController {
         List<Order> orders = orderService.queryOrderList();
         return orders;
     }
-
-    /**
-     * 根据 id 查询某个订单信息
-     * @param orderId
-     * @return
-     */
-    @GetMapping("/queryOrderById/{orderId}")
-    public Order  queryOrderById(@PathVariable String orderId) {
-        Order order = orderService.queryOrderById(orderId);
-        return order;
-    }
-
-
 }

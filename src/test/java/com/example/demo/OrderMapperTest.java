@@ -17,8 +17,7 @@ public class OrderMapperTest {
 
     @Test
     public void testSelect() {
-        List<Order> orders = orderMapper.queryOrderAndDetailList();
+        List<Order> orders = orderMapper.queryOrderList();
         System.out.println(orders);
-
     }
 }

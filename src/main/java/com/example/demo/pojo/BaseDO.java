@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BaseDO {
-    private Integer id;
+    private Long id;
     /**
      * 创建人
      */
@@ -32,9 +32,4 @@ public class BaseDO {
      * 修改时间
      */
     private Date updateTime;
-
-    /**
-     * 逻辑删除
-     */
-    private Boolean isDelete;
 }
