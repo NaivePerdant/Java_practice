@@ -24,17 +24,17 @@ public interface OrderMapper {
      * @param orderId
      * @return
      */
-    Order queryOrderById(int orderId);
+    Order queryOrderById(String orderId);
 
     /**
-     * 增
+     * 增加一条订单
      * @param order
      * @return
      */
     int addOrder(Order order);
 
     /**
-     * 改
+     * 修改一条订单
      * @param order
      * @return
      */
@@ -45,5 +45,5 @@ public interface OrderMapper {
      * @param orderId
      * @return
      */
-    int deleteOrder(int orderId);
+    int deleteOrder(String orderId);
 }

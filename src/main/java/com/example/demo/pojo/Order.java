@@ -1,13 +1,18 @@
 package com.example.demo.pojo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 订单类
  * @author perdant
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Order extends BaseDO{
+    private Long id;
     /**
      * 订单号
      */
@@ -32,8 +37,4 @@ public class Order extends BaseDO{
      * 是否删除：0-否，1-是
      */
     private int isDelete;
-    /**
-     * 具体商品
-     */
-    private Item item;
 }

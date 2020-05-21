@@ -1,6 +1,8 @@
 package com.example.demo.pojo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -9,6 +11,8 @@ import java.util.Date;
  * @author perdant
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class BaseDO {
     /**
      * 创建人

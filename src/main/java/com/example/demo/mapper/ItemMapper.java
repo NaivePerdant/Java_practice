@@ -1,4 +1,7 @@
 package com.example.demo.mapper;
 
-public class ItemMapper {
+/**
+ * @author perdant
+ */
+public interface ItemMapper {
 }
