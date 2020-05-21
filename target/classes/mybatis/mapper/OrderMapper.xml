@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.OrderMapper">
-    <resultMap id="OrderResultMap" type="Order">
-        <result property="orderId" column="order_id"/>
-        <result property="orderSource" column="order_source"/>
-        <result property="orderStatus" column="order_status"/>
-        <result property="userId" column="user_id"/>
-        <result property="amount" column="amount"/>
-        <association property="item" javaType="Item">
-            <result property="itemAmount" column="item_amount"/>
-            <result property="itemId" column="item_id"/>
-        </association>
+    <resultMap id="orderResultMap" type="Order">
+        <id property="orderId" column="order_id"/>
+        <association property="item" column="order_id" select="com.example.demo.mapper.ItemMapper.queryItemById"/>
     </resultMap>
 
-    <select id="queryOrderList" resultMap="OrderResultMap">
-        SELECT order_info.order_id,
-               order_info.order_source,
-               order_info.user_id,
-               order_info.order_status,
-               order_info.amount,
-               order_detail_info.item_id,
-               order_detail_info.item_amount
-
-        FROM order_info
-                 LEFT JOIN order_detail_info ON order_info.order_id = order_detail_info.order_id;
-
+    <!--查询所有订单全部信息-->
+    <select id="queryOrderList" resultMap="orderResultMap">
+        select * from order_info;
     </select>
+
+    <!--根据 id 查询全部订单信息-->
+    <select id="queryById" resultMap="orderResultMap" parameterType="String">
+        select * from order_info where order_id = #{id};
+    </select>
+
 </mapper>

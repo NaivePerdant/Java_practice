@@ -16,4 +16,11 @@ public interface OrderService {
      * @return
      */
     List<Order> queryOrderList();
+
+    /**
+     * 根据 id 查询订单具体信息
+     * @param id
+     * @return
+     */
+    Order queryById(String id);
 }

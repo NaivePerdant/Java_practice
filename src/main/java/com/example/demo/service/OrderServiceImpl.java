@@ -24,4 +24,9 @@ public class OrderServiceImpl implements OrderService{
     public List<Order> queryOrderList() {
         return orderMapper.queryOrderList();
     }
+
+    @Override
+    public Order queryById(String id) {
+        return orderMapper.queryById(id);
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.mapper.ItemMapper;
 import com.example.demo.pojo.Order;
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,25 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private ItemMapper itemMapper;
+
     /**
      * 查询所有订单信息
      * @return
      */
     @GetMapping("/queryOrderList")
     public List<Order> queryOrderList() {
-        List<Order> orders = orderService.queryOrderList();
-        return orders;
+        return orderService.queryOrderList();
+    }
+
+    /**
+     * 根据id 查询订单具体信息
+     * @param id
+     * @return
+     */
+    @GetMapping("/queryById/{id}")
+    public Order queryById(@PathVariable String id) {
+        return orderService.queryById(id);
     }
 }

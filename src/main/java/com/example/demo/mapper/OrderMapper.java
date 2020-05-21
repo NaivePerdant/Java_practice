@@ -18,4 +18,11 @@ public interface OrderMapper {
      * @return
      */
     List<Order> queryOrderList();
+
+    /**
+     * 根据 id 查询订单信息
+     * @param id
+     * @return
+     */
+    Order queryById(String id);
 }

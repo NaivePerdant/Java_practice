@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class Item {
+public class Item extends BaseDO {
     /**
      * 订单号
      */
