@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.OrderMapper">
+    <resultMap id="OrderAndDetailMap" type="Order">
+        <result property="orderId" column="order_id"/>
+        <result property="orderSource" column="order_source"/>
+        <result property="orderStatus" column="order_status"/>
+        <result property="userId" column="user_id"/>
+        <result property="amount" column="amount"/>
+        <association property="detailItem" javaType="DetailItem">
+            <result property="itemAmount" column="item_amount"/>
+            <result property="itemId" column="item_id"/>
+        </association>
+    </resultMap>
+
     <select id="queryOrderList" resultType="Order">
-        select * from order_info
+        select *
+        from order_info
     </select>
 
-    <select id="queryOrderById" resultType="Order">
-        select * from order_info where order_id = orderId
+    <select id="queryOrderAndDetailList" resultMap="OrderAndDetailMap">
+        SELECT order_info.order_id,
+               order_info.order_source,
+               order_info.user_id,
+               order_info.order_status,
+               order_info.amount,
+               order_detail_info.item_id,
+               order_detail_info.item_amount
+
+        FROM order_info
+                 LEFT JOIN order_detail_info ON order_info.order_id = order_detail_info.order_id;
+
     </select>
+
 </mapper>

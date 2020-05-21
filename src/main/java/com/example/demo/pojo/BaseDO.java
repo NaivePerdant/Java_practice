@@ -8,12 +8,14 @@ import java.util.Date;
 
 /**
  * 提取出两个表的公共属性
+ *
  * @author perdant
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class BaseDO {
+    private Integer id;
     /**
      * 创建人
      */
@@ -30,4 +32,9 @@ public class BaseDO {
      * 修改时间
      */
     private Date updateTime;
+
+    /**
+     * 逻辑删除
+     */
+    private Boolean isDelete;
 }
