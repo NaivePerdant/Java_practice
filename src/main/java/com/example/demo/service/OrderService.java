@@ -25,9 +25,23 @@ public interface OrderService {
     Order queryById(String id);
 
     /**
+     * 新增订单信息
+     * @param order
+     * @return
+     */
+    int addOrder(Order order);
+
+    /**
      * 根据 id 删除订单
      * @param id
      * @return
      */
     int deleteOrder(String id);
+
+    /**
+     * 修改订单信息
+     * @param order
+     * @return
+     */
+    int updateOrder(Order order);
 }

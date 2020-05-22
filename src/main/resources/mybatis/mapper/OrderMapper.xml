@@ -31,4 +31,16 @@
         update order_info set is_delete = 1 where order_id = #{id};
     </update>
 
+    <!--新增订单信息-->
+    <insert id="addOrder" parameterType="Order">
+        insert into order_info (order_id,order_source,user_id,
+                                order_status,amount,is_delete,
+                                create_by,update_by,create_time,
+                                update_time)
+                        values (#{orderId},#{orderSource},#{userId},
+                                 #{orderStatus},#{amount},#{isDelete},
+                                 #{createBy},#{updateBy},#{createTime},
+                                 #{updateTime});
+    </insert>
+
 </mapper>

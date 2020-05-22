@@ -6,6 +6,8 @@ import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Controller 层
  * @author perdant
@@ -22,10 +24,8 @@ public class OrderController {
      * @return
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String queryOrderList() {
-        String code = "200 OK";
-        String text = JSON.toJSONString(orderService.queryOrderList());
-        return text;
+    public List<Order> queryOrderList() {
+        return orderService.queryOrderList();
     }
 
     /**
@@ -34,11 +34,8 @@ public class OrderController {
      * @return
      */
     @RequestMapping(method = RequestMethod.GET,value = "/{id}")
-    public String queryById(@PathVariable String id) {
-        String code = "200 OK";
-        Order order = orderService.queryById(id);
-        String text = JSON.toJSONString(order);
-        return text;
+    public Order queryById(@PathVariable("id") String id) {
+        return orderService.queryById(id);
     }
 
     /**
@@ -46,9 +43,9 @@ public class OrderController {
      * @return
      */
     @RequestMapping(method = RequestMethod.POST)
-    public String addOrder(){
-        String code = "201 Created";
-        return code;
+    public int addOrder(@RequestBody String jsonStr){
+        Order order = JSON.parseObject(jsonStr,Order.class);
+        return orderService.addOrder(order);
     }
 
     /**
@@ -57,10 +54,8 @@ public class OrderController {
      * @return
      */
     @RequestMapping(method = RequestMethod.DELETE,value = "/{id}")
-    public String deleteOrder(@PathVariable String id){
-        orderService.deleteOrder(id);
-        String code = "204 No Content";
-        return code;
+    public int deleteOrder(@PathVariable("id") String id){
+        return orderService.deleteOrder(id);
     }
 
     /**
@@ -68,9 +63,8 @@ public class OrderController {
      * @return
      */
     @RequestMapping(method = RequestMethod.PUT)
-    public String updateOrder(){
-        String code = "200 OK";
-        return code;
+    public int updateOrder(@RequestBody String jsonStr){
+        Order order = JSON.parseObject(jsonStr,Order.class);
+        return orderService.updateOrder(order);
     }
-
 }

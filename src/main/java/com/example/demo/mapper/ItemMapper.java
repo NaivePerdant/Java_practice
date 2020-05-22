@@ -20,4 +20,18 @@ public interface ItemMapper {
      * @return
      */
     int deleteItem(String id);
+
+    /**
+     * 修改商品信息
+     * @param item
+     * @return
+     */
+    int updateItem(Item item);
+
+    /**
+     * 新增商品信息
+     * @param item
+     * @return
+     */
+    int addItem(Item item);
 }

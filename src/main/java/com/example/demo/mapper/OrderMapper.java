@@ -39,4 +39,11 @@ public interface OrderMapper {
      * @return
      */
     int deleteOrder(String id);
+
+    /**
+     * 新增一条订单信息
+     * @param order
+     * @return
+     */
+    int addOrder(Order order);
 }
