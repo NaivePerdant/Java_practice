@@ -19,6 +19,13 @@
     </properties>
 
     <dependencies>
+
+        <!--操作 redis 底层是 SpringData-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
         <!-- fastJson -->
         <dependency>
             <groupId>com.alibaba</groupId>
