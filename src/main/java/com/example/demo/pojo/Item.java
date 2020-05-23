@@ -2,6 +2,9 @@ package com.example.demo.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 /**
  * 商品类
@@ -10,6 +13,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Item extends BaseDO {
     /**
      * 订单号

@@ -40,7 +40,7 @@
 
 **初步设想：**
 
-![如何具体实现？](https://tva1.sinaimg.cn/large/007S8ZIlly1gf1q8ucnghj31cl0o1gog.jpg)
+![如何具体实现？](/Users/perdant/Downloads/redis实现缓存 (1).jpg)
 
 ==主 redis 数据库和 MySQL 之间是不是应该还有一个负责向双方读写的层？==
 

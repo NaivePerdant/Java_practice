@@ -4,14 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * 订单类
+ *
  * @author perdant
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order extends BaseDO{
+public class Order extends BaseDO {
     /**
      * 订单号
      */
