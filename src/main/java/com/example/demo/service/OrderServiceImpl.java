@@ -1,9 +1,12 @@
 package com.example.demo.service;
 
+import com.alibaba.fastjson.JSON;
 import com.example.demo.mapper.ItemMapper;
 import com.example.demo.mapper.OrderMapper;
 import com.example.demo.pojo.Order;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +23,9 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
     @Autowired
     private ItemMapper itemMapper;
+    @Autowired
+    private RedisTemplate redisTemplate;
+
 
     /**
      * 查询所有订单信息
@@ -33,13 +39,30 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 根据 id 查询订单信息
-     *
+     * 使用 redis 做缓存
      * @param id
      * @return
      */
     @Override
     public Order queryById(String id) {
-        return orderMapper.queryById(id);
+        ValueOperations<String,String> valueOperations = redisTemplate.opsForValue();
+        boolean hasKey = redisTemplate.hasKey(id);
+        if (hasKey){
+            String value = valueOperations.get(id);
+            System.out.println("=====从缓存中读取======");
+            System.out.println(value);
+            System.out.println("=====================");
+            return JSON.parseObject(value,Order.class);
+        }else{
+            Order order = orderMapper.queryById(id);
+            System.out.println("=====从数据库中读取=====");
+            System.out.println(JSON.toJSONString(order));
+            System.out.println("======================");
+            // 写入缓存
+            String s = JSON.toJSONString(order);
+            valueOperations.set(id,s);
+            return order;
+        }
     }
 
     /**
