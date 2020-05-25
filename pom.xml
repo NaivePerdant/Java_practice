@@ -20,6 +20,12 @@
 
     <dependencies>
 
+        <!-- kafka 依赖 -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
         <!-- redis 依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
