@@ -5,8 +5,10 @@ import com.example.demo.mapper.ItemMapper;
 import com.example.demo.mapper.OrderMapper;
 import com.example.demo.pojo.Order;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +27,10 @@ public class OrderServiceImpl implements OrderService {
     private ItemMapper itemMapper;
     @Autowired
     private RedisTemplate redisTemplate;
+    @Autowired
+    OrderProducerService orderProducerService;
+
+
 
 
     /**
@@ -98,8 +104,13 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public int updateOrder(Order order) {
+        // 写入 MySQL 数据库
         int m = orderMapper.updateOrder(order);
         int n = itemMapper.updateItem(order.getItem());
+        // or 写入 Redis 数据库 or 让 Redis 数据库数据失效
+        // ...
+        // 发送订单状态
+        orderProducerService.sendMessage(order);
         return m & n;
     }
 }
